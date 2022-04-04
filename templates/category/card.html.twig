@@ -1,0 +1,10 @@
+<div class="card">
+	<div class="card-body">
+		<h5 class="card-title">{{ category.name }}</h5>
+		<p class="card-text">{{ category.articles|length }}
+			articles</p>
+		<p>
+			<a href="{{ path('category_item', { 'id': category.id }) }}" class="btn btn-primary">Voir</a>
+		</p>
+	</div>
+</div>
