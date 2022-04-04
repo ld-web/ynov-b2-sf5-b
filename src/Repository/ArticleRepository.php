@@ -21,6 +21,15 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    public function findLast(int $limit)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->orderBy('a.date', 'DESC')
+            ->setMaxResults($limit);
+
+        return $qb->getQuery()->getResult();
+    }
+
     /**
      * @throws ORMException
      * @throws OptimisticLockException
