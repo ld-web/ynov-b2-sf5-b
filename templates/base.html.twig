@@ -16,6 +16,19 @@
 		{% endblock %}
 	</head>
 	<body>
+		{# NAV #}
+		<div>
+			<a href="{{ path('newsletter_register') }}">Newsletter</a>
+		</div>
+		{# FLASHES #}
+		{% for type, messages in app.flashes(['success', 'danger', 'info', 'warning']) %}
+			{% for message in messages %}
+				<div class="alert alert-{{ type }}" role="alert">
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endfor %}
+
 		{% block body %}{% endblock %}
 	</body>
 </html>
